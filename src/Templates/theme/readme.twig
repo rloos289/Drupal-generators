@@ -1,0 +1,55 @@
+# Starter Theme Template
+
+This is a very basic theme to get up and running quickly.
+
+
+## Features
+
+* Based off of the Drupal 9 core theme `stable9`.
+* Component based theming utilizing [Components!](https://www.drupal.org/project/components) module.
+* Build tools use [Laravel Mix](https://laravel-mix.com/) for sass & javascript compilation.
+* [Code formatting](https://prettier.io/) with [pretty-quick](https://github.com/azz/pretty-quick).
+
+
+## Prerequisites
+
+* [Yarn (v1)](https://classic.yarnpkg.com/en/docs/install)
+* [nvm](https://github.com/nvm-sh/nvm) (optional)
+
+
+## Setup
+
+1. Rename this folder from `my_theme` to the name of the new theme (ex. `whatever`).
+2. Rename the following files (from `my_theme.*` to `whatever.*`):
+   1. `my_theme.info.yml`
+   2. `my_theme.libraries.yml`
+   3. `my_theme.theme`
+   4. `src/sass/my_theme.style.scss`
+   5. `src/js/my_theme.script.js`
+3. In an editor, do a find/replace:
+   1. Find `my_theme`
+   2. Replace with `whatever`
+
+3. Duplicate `.env.example` to `.env`, then replace `my_project` with the name of the site (in the `.lando.yml` file.
+4. If `nvm` is installed, use it to set the active node version based upon what is set in the `.nvmrc` file.
+   1. If you use a different node version, please update the `.nvmrc` file for other devs.
+5. Run `yarn install` to install the build tools.
+6. Run `yarn dev` to start.
+
+## Usage
+
+1. Create a new component by creating a folder in `src/components` and put all twig, css, & javascript files related to the component in that folder.
+   1. When the theme builds, it will output a [component-name].css file in the `assets/css` folder (same for javascript files, but in the `assets/js` folder).
+2. If any css or javascript is required for the component, create a new library entry in `whatever.libraries.yml` and then "attach" the library to the component using Drupal's [attach_library](https://www.drupal.org/docs/theming-drupal/twig-in-drupal/functions-in-twig-templates#s-attach-librarylibrary) function.
+3. "Use" the component in a Drupal twig file by using the Twig [include](https://twig.symfony.com/doc/2.x/tags/include.html) tag.
+4. An example component has been provided:
+   1. `src/components/breadcrumb/breadcrumb.twig`
+   2. `src/components/breadcrumb/breadcrumb.scss`
+   3. `templates/navigation/breadcrumb.html.twig`
+   4. `whatever.libraries.yml`
+
+5. Any "global" css styles should be put in `src/sass/whatever.style.scss` or `src/sass/global/_some-global-style.scss`.
+6. Any "global" javascript should be put in `src/js/whatever.script.js`.
+
+7. Any preprocess or alter hooks should be put in files in the `includes` folder, corresponding to the thing that is preprocessed/altered.
+8. Any images, icons, local fonts, etc. can be put into subfolders of `assets`.

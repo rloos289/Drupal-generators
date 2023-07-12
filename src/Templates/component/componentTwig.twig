@@ -1,0 +1,20 @@
+{{ '{#' }}
+/**
+ * Available variables:
+ * - {{ component_name }} - primary variable
+ */
+{{ '#}' }}
+
+{% if library %}
+{{ "{{ attach_library('" }}{{ theme_name }}{{'/'}}{{ component_name }}{{ "'}}) }}" }}
+{% endif %}
+
+{{ "{% set classes = [" }}
+  {{ "'" }}{{ component_name }} {{ "'," }}
+{{ "]|merge(" }}{{ component_name }}{{ ".classes|default([''])) %}" }}
+
+{% verbatim %}
+<div class="{{ classes|join(' ')|trim }}">
+  {# Template code here #}
+</div>
+{% endverbatim %}

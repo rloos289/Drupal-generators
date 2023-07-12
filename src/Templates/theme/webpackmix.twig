@@ -1,0 +1,43 @@
+let mix = require("laravel-mix");
+const MixGlob = require('laravel-mix-glob');
+const mixGlob = new MixGlob({mix});
+
+// Config
+mix
+  .setPublicPath("assets")
+  // .disableNotifications()
+  .options({
+    processCssUrls: false,
+  })
+  .webpackConfig({
+    stats: {
+      hash: true,
+      version: true,
+      timings: true,
+      children: false,
+      errors: true,
+      errorDetails: true,
+      warnings: true,
+      chunks: false,
+      modules: false,
+      reasons: true,
+      source: true,
+      publicPath: false,
+    },
+  });
+
+// Browsersync
+mix.browserSync({
+  proxy: process.env.PROXY,
+  files: ["assets/js/**/*.js", "assets/css/**/*.css"],
+  stream: true,
+  watch: true,
+});
+
+// Sass
+mixGlob.sass("src/sass/{{ machine_name }}.style.scss", "css");
+mixGlob.sass("src/components/**/*.scss", "css");
+
+// Js
+mixGlob.js("src/js/{{ machine_name }}.script.js", "js");
+mixGlob.js("src/components/**/*.js", "js");

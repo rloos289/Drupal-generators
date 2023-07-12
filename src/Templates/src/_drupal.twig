@@ -1,0 +1,87 @@
+// Toolbar
+.toolbar {
+  a {
+    font-size: 0.8125rem;
+  }
+
+  // Undo global css from _base-elements.scss
+  li {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+// Drupal messages
+.messages {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+
+  &__inner {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  &--status {
+    background-color: #cfefc2;
+    color: #454e41;
+  }
+
+  &--warning {
+    background-color: #f9fb93;
+    color: #494a2d;
+  }
+
+  &--error {
+    background-color: #fbe3e4;
+    color: #634849;
+  }
+}
+
+// Drupal tabs
+.tabs.primary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 20px 0;
+  padding-left: 0;
+  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+
+  li {
+    display: block;
+    margin-bottom: 0;
+    border: 1px solid #ccc;
+    padding-left: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+
+    &:last-child {
+      border-right-width: 1px;
+    }
+
+    a {
+      display: block;
+      padding: 12px 25px 9px 20px;
+      border-bottom: 3px solid transparent;
+      font-size: 14px;
+      line-height: 20px;
+      color: #333;
+      text-decoration: none;
+      transition: border-color 200ms;
+      &:focus,
+      &:hover {
+        background-color: #fff;
+      }
+    }
+
+    &.is-active,
+    &:hover {
+      a {
+        border-bottom-color: #333;
+      }
+    }
+  }
+}

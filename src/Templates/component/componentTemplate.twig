@@ -1,0 +1,18 @@
+{{ '{#' }}
+/**
+ * @file
+ * Theme override for {{ component_name }}.
+ *
+ */
+{{ '#}' }}
+
+{{ "{% if"}} {{ component_name }} {{ "%}" }}
+  {{ "{% include '"}}{{"@#{ theme_name }/#{ component_name }/#{ component_name }.twig"}}{{ "' with {" }}
+    {{ component_name }}{{ ": {" }}
+      {{ "items:" }} {{ component_name }}
+{% verbatim %}
+    }
+  } %}
+{% endif %}
+{% endverbatim %}
+

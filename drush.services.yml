@@ -1,0 +1,14 @@
+services:
+  example.generator:
+    class: Drupal\generators\Generators\ExampleGenerator
+    arguments: ['@module_handler']
+    tags:
+      - { name: drush.generator.v2 }
+  custom_theme.generator:
+    class: Drupal\generators\Generators\CustomThemeGenerator
+    tags:
+      - { name: drush.generator.v2 }
+  component.generator:
+    class: Drupal\generators\Generators\ComponentGenerator
+    tags:
+      - { name: drush.generator.v2 }

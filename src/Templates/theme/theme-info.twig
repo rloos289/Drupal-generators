@@ -1,0 +1,24 @@
+name: {{ name }}
+type: theme
+base theme: {{ base_theme }}
+description: {{ description }}
+core_version_requirement: ^8.8 || ^9 || ^10
+
+regions:
+  header_left: 'Header Left'
+  header_right: 'Header Right'
+  help: 'Help'
+  content: 'Content'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - {{ name }}/style
+
+ckeditor_stylesheets:
+  - assets/css/{{ name }}.style.css
+
+components:
+  namespaces:
+    {{ name }}: ./src/components
